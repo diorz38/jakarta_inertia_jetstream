@@ -8,7 +8,6 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('libs/boxicons/css/boxicons.min.css') }}">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -23,5 +22,6 @@
         {{-- @env ('local')
             <script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>
         @endenv --}}
+        <script src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js" defer></script>
     </body>
 </html>
