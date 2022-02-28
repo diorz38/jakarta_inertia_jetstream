@@ -22,6 +22,5 @@
         {{-- @env ('local')
             <script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>
         @endenv --}}
-        <script src="https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js" defer></script>
     </body>
 </html>
