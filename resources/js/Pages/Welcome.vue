@@ -140,8 +140,6 @@
                             </div> -->
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </nav>
@@ -369,9 +367,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <ejs-chart id="container" :title='title' :primaryXAxis='primaryXAxis'>
+                            <ejs-chart id="container" :title="title" :primaryXAxis="primaryXAxis">
                                 <e-series-collection>
-                                    <e-series :dataSource='seriesData' type='Line' xName='month' yName='sales' name='Sales'> </e-series>
+                                    <e-series :dataSource="seriesData" type="Line" xName="month" yName="sales" name="Sales"> </e-series>
                                 </e-series-collection>
                             </ejs-chart>
                             <!-- <div id="chart-bar" class="flex-auto"></div> -->
@@ -433,15 +431,15 @@
 <script>
 import { defineComponent } from 'vue'
 import { Head, Link } from '@inertiajs/inertia-vue3'
-import { ChartComponent, SeriesCollectionDirective, SeriesDirective, LineSeries, Legend, Category } from "@syncfusion/ej2-vue-charts"
+import { ChartComponent, SeriesCollectionDirective, SeriesDirective, LineSeries, Legend, Category } from '@syncfusion/ej2-vue-charts'
 
 export default defineComponent({
     components: {
         Head,
         Link,
-        'ejs-chart' : ChartComponent,
-        'e-series-collection' : SeriesCollectionDirective,
-        'e-series' : SeriesDirective
+        'ejs-chart': ChartComponent,
+        'e-series-collection': SeriesCollectionDirective,
+        'e-series': SeriesDirective,
     },
 
     props: {
@@ -449,23 +447,31 @@ export default defineComponent({
         canRegister: Boolean,
         laravelVersion: String,
         phpVersion: String,
+        chartData: [
+                { month: 'Jan', sales: 35 },
+                { month: 'Feb', sales: 28 },
+                { month: 'Mar', sales: 34 },
+                { month: 'Apr', sales: 32 },
+                { month: 'May', sales: 40 },
+                { month: 'Jun', sales: 32 },
+                { month: 'Jul', sales: 35 },
+                { month: 'Aug', sales: 55 },
+                { month: 'Sep', sales: 38 },
+                { month: 'Oct', sales: 30 },
+                { month: 'Nov', sales: 25 },
+                { month: 'Dec', sales: 32 },
+            ],
     },
     data() {
         return {
-        primaryXAxis: {
-            valueType: 'Category'
-        },
-        seriesData: [
-                { month: 'Jan', sales: 35 }, { month: 'Feb', sales: 28 },
-                { month: 'Mar', sales: 34 }, { month: 'Apr', sales: 32 },
-                { month: 'May', sales: 40 }, { month: 'Jun', sales: 32 },
-                { month: 'Jul', sales: 35 }, { month: 'Aug', sales: 55 },
-                { month: 'Sep', sales: 38 }, { month: 'Oct', sales: 30 },
-                { month: 'Nov', sales: 25 }, { month: 'Dec', sales: 32 }
-            ]};
-        },
-        provide: {
-            chart: [ LineSeries, Legend, Category ]
-        },
+            primaryXAxis: {
+                valueType: 'Category',
+            },
+            seriesData: $page.props.chartData,
+        }
+    },
+    provide: {
+        chart: [LineSeries, Legend, Category],
+    },
 })
 </script>
